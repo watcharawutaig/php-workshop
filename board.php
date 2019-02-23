@@ -3,13 +3,14 @@
   $action = $_GET['action'];
   $boardId = $_GET['boardId'];
   $userId = $_SESSION['user_id'];
+  $commentId = $_GET['comment'];    
 
 
   if($action){
     if($action === 'comment'){
       $comment = $_POST['comment'];
       $sql = "INSERT INTO table_comment(comment_content,comment_board_id,comment_member_id
-      )VALUES('$comment','$boardId','$userId')";
+      ) VALUES ('$comment','$boardId','$userId')";
 
       $reslt = $conn->exec($sql);
       if($reslt){
